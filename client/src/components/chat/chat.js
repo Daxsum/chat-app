@@ -20,7 +20,7 @@ const Chat = ({ location }) => {
     const [messages, setMessages] = useState([])
     const [roomUsers, setRoomUsers] = useState([])
 
-    const ENDPOINT = 'http://localhost:5000/'
+    const ENDPOINT = 'https://chatapp-1lw9.onrender.com'
 
     // location comes from router and passed as a prop to it's component(s)
     useEffect(() => {
