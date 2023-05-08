@@ -33,10 +33,10 @@ io.on(
                 //it sends this data to the client
                 callback(error)
             }
-            socket.emit('message', { user: 'admin', text: `Hi ${user.name},I am Sumit, Welcome to the room ${user.room} ` })
+            socket.emit('message', { user: 'admin', text: `Hi ${user.name},I am Kalab, Welcome to the room ${user.room} ` })
 
             // broadcast send a message everyone except this user  to():targets a specific room
-            socket.broadcast.to(user.room).emit('message', { user: 'admin', text: `${user.name} joined the room ` })
+            socket.broadcast.to(user.room).emit('message', { user: 'System Bot', text: `${user.name} joined the room ` })
 
             // if not error ; call join (built in funtion to join a room)
             socket.join(user.room)
@@ -62,7 +62,7 @@ io.on(
             console.log("disconnect", user);
 
             if (user) {
-                io.to(user.room).emit('message', { user: 'admin', text: `${user.name} left the room` })
+                io.to(user.room).emit('message', { user: 'System Bot', text: `${user.name} left the room` })
                 io.to(user.room).emit('roomData', { room: user.room, users: getUsersInRoom(user.room) })
             }
         })
